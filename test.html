@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С 8 Марта — команда разработки</title>
+  <style>
+    :root {
+      --bg: #fcfbff;
+      --bg-soft: #f7f2ff;
+      --card: #ffffff;
+      --text: #2c2438;
+      --muted: #6e627c;
+      --accent: #8f62ff;
+      --accent-2: #ff82bd;
+      --accent-3: #ffd36d;
+      --line: #e9e1f6;
+      --shadow: 0 12px 30px rgba(80, 45, 130, 0.10);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --container: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+              radial-gradient(circle at 10% 10%, rgba(143, 98, 255, 0.07), transparent 45%),
+              radial-gradient(circle at 90% 15%, rgba(255, 130, 189, 0.08), transparent 40%),
+              var(--bg);
+      line-height: 1.5;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(143,98,255,0.10), rgba(255,130,189,0.09));
+      border: 1px solid rgba(143, 98, 255, 0.15);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    .hero-card::before {
+      width: 240px;
+      height: 240px;
+      right: -40px;
+      top: -60px;
+      background: rgba(143, 98, 255, 0.18);
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      left: -30px;
+      bottom: -50px;
+      background: rgba(255, 130, 189, 0.20);
+    }
+
+    .hero-topline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #a77dff);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(143, 98, 255, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .note {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .note-title {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .note p {
+      margin: 0;
+      font-size: 16px;
+    }
+    .person {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .person-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .person.reverse .person-grid {
+      grid-template-columns: 1fr 360px;
+    }
+
+    .person-photo-wrap {
+      background: linear-gradient(180deg, #f7f1ff 0%, #fff7fc 100%);
+      border-right: 1px solid var(--line);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .person.reverse .person-photo-wrap {
+      border-right: none;
+      border-left: 1px solid var(--line);
+      order: 2;
+    }
+
+    .person-photo-card {
+      width: 100%;
+      max-width: 300px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(69, 37, 116, 0.08);
+      transform: rotate(-1.2deg);
+    }
+
+    .person.reverse .person-photo-card {
+      transform: rotate(1.2deg);
+    }
+
+    .person-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 12px;
+      background: #ece6f8;
+    }
+
+    .person-caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .person-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .person.reverse .person-content {
+      order: 1;
+    }
+
+    .person-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      align-items: center;
+    }
+
+    .person-name {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .person-text {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .person-text + .person-text {
+      margin-top: -6px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 8px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #574a66;
+    }
+
+    .quote {
+      border-left: 3px solid rgba(143, 98, 255, 0.35);
+      background: #fcfaff;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #5d5371;
+    }
+
+    .words {
+      background: linear-gradient(180deg, #fff, #fefbff);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .words h2,
+    .final h2 {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 30px);
+      letter-spacing: -0.02em;
+    }
+
+    .words p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: white;
+      font-weight: 700;
+      color: #564b65;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+    }
+
+    .chatbox {
+      margin-top: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .chatbox-head {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      background: #fcfbff;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 14px 0 0 var(--accent-2), 28px 0 0 var(--accent-3);
+      margin-right: 24px;
+    }
+
+    .chat-list {
+      list-style: none;
+      margin: 0;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .chat-item {
+      border-radius: 12px;
+      border: 1px solid #efe8fa;
+      padding: 10px 12px;
+      background: #fff;
+      color: #4e4460;
+      font-size: 14px;
+    }
+
+    .chat-item strong {
+      color: #3c3150;
+    }
+
+    .word-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .final {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(143,98,255,0.06), rgba(255,130,189,0.06));
+      border: 1px solid rgba(143, 98, 255, 0.14);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px 20px;
+    }
+
+    .final p {
+      margin: 10px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .final-sign {
+      margin-top: 14px;
+      font-weight: 700;
+      color: #4d4161;
+    }
+
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 50;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -10px;
+      width: 8px;
+      height: 14px;
+      border-radius: 3px;
+      opacity: 0.95;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0.95;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .spacer-16 { height: 16px; }
+    .spacer-24 { height: 24px; }
+
+    @media (max-width: 980px) {
+      .person-grid,
+      .person.reverse .person-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .person-photo-wrap,
+      .person.reverse .person-photo-wrap {
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid var(--line);
+        order: 1;
+      }
+
+      .person-content,
+      .person.reverse .person-content {
+        order: 2;
+      }
+
+      .person-photo-card,
+      .person.reverse .person-photo-card {
+        transform: none;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card,
+      .person-content,
+      .words,
+      .final,
+      .note {
+        padding: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .chips {
+        gap: 8px;
+      }
+
+      .chip { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-card fade-up">
+      <div class="hero-topline">🌷 Внутренний лендинг команды разработки • 8 Марта</div>
+      <h1>С 8 Марта, девушки нашей команды 💜</h1>
+      <p>
+        Небольшое, но очень тёплое «спасибо» за профессионализм, поддержку, чувство юмора и вклад,
+        который делает нашу команду сильнее каждый день.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#greeting">К поздравлению</a>
+        <button class="btn btn-secondary" id="confettiBtn" type="button">🎉 Немного праздника</button>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="section" id="greeting">
+    <div class="container">
+      <div class="note fade-up">
+        <div class="note-title">От команды</div>
+        <p>
+          Сегодня хотим сказать вам простое и важное «спасибо». За ваш профессионализм, терпение,
+          внимание к деталям, поддержку и ту самую человеческую часть команды, которую нельзя занести
+          отдельной задачей в Jira, но без которой всё работает сильно хуже. С 8 Марта! 🌷
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Персональный блок 1: QA -->
+  <section class="section" id="qa-block">
+    <div class="container">
+      <article class="person fade-up">
+        <div class="person-grid">
+          <div class="person-photo-wrap">
+            <div>
+              <div class="person-photo-card">
+                <!-- ЗАМЕНИ src на реальное фото -->
+                <img class="person-photo" src="https://placehold.co/800x1000/F1EAFE/6A55A7?text=Фото+QA" alt="Фото QA" />
+              </div>
+              <div class="person-caption">Точность. Качество. Спокойствие.</div>
+            </div>
+          </div>
+          <div class="person-content">
+            <div class="person-header">
+              <h2 class="person-name">Имя QA 🌷</h2>
+              <span class="badge">QA / Тестирование</span>
+            </div>
+
+            <p class="person-text">
+              Спасибо за твою внимательность, точность и сильный профессиональный взгляд.
+              Ты замечаешь то, что другие легко пропускают, и делаешь продукт надёжнее.
+            </p>
+            <p class="person-text">
+              С тобой качество — это не случайность, а закономерность. Очень ценим всё, что ты делаешь 💜
+            </p>
+
+            <div class="tag-list" aria-label="Качества QA">
+              <span class="tag">Внимательность</span>
+              <span class="tag">Системность</span>
+              <span class="tag">Надёжность</span>
+              <span class="tag">Здравый смысл</span>
+            </div>
+
+            <div class="quote">💬 «Ты находишь баги быстрее, чем мы успеваем сказать: “да там всё ок” 😄»</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Персональный блок 2: Техподдержка -->
+  <section class="section" id="support-block">
+    <div class="container">
+      <article class="person reverse fade-up">
+        <div class="person-grid">
+          <div class="person-photo-wrap">
+            <div>
+              <div class="person-photo-card">
+                <!-- ЗАМЕНИ src на реальное фото -->
+                <img class="person-photo" src="https://placehold.co/800x1000/FFEAF4/8A4D74?text=Фото+Support" alt="Фото техподдержки" />
+              </div>
+              <div class="person-caption">Спокойствие в любой ситуации</div>
+            </div>
+          </div>
+          <div class="person-content">
+            <div class="person-header">
+              <h2 class="person-name">Имя Support 🌷</h2>
+              <span class="badge">Техподдержка</span>
+            </div>
+
+            <p class="person-text">
+              Спасибо за терпение, включённость и умение помогать даже в непростых ситуациях.
+              Ты умеешь превращать «всё сломалось!» в «сейчас разберёмся» — и это суперсила.
+            </p>
+            <p class="person-text">
+              Ты делаешь огромную и очень важную работу — спокойно, точно и с заботой о людях.
+              Это правда очень ценно 💜
+            </p>
+
+            <div class="tag-list" aria-label="Качества техподдержки">
+              <span class="tag">Эмпатия</span>
+              <span class="tag">Выдержка</span>
+              <span class="tag">Коммуникация</span>
+              <span class="tag">Скорость реакции</span>
+            </div>
+            <div class="quote">💬 «Когда ты в деле, даже срочные кейсы звучат не так пугающе»</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="thanks">
+    <div class="container">
+      <div class="words fade-up">
+        <h2>Немного тёплых слов от команды</h2>
+        <p>Без пафоса, зато по делу: за что вас особенно ценим и благодарим.</p>
+
+        <div class="chips" id="chips">
+          <span class="chip">Поддержка</span>
+          <span class="chip">Профессионализм</span>
+          <span class="chip">Надёжность</span>
+          <span class="chip">Чувство юмора</span>
+          <span class="chip">Спокойствие</span>
+          <span class="chip">Внимание к деталям</span>
+        </div>
+
+        <div class="chatbox" aria-label="Тёплые сообщения от команды">
+          <div class="chatbox-head">
+            <span class="dot" aria-hidden="true"></span>
+            team-dev / warm-messages.log
+          </div>
+          <ul class="chat-list" id="chatList">
+            <li class="chat-item"><strong>Сообщение:</strong> спасибо за спокойствие в горячих релизах 🔥</li>
+            <li class="chat-item"><strong>Сообщение:</strong> спасибо за точность, внимание и здоровый перфекционизм</li>
+            <li class="chat-item"><strong>Сообщение:</strong> спасибо за поддержку и адекватный юмор в любых созвонах</li>
+          </ul>
+        </div>
+
+        <div class="word-actions">
+          <button class="btn btn-secondary" id="moreWordsBtn" type="button">Показать ещё добрых слов</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="final fade-up">
+        <h2>С 8 Марта! Спасибо, что вы с нами 💜</h2>
+        <p>
+          Пусть будет больше радостных моментов, вдохновения, лёгких задач (ну хотя бы иногда 😄)
+          и как можно меньше внезапных «срочно-срочно». Вы — важная и сильная часть нашей команды.
+        </p>
+        <div class="final-sign">С уважением и теплом, команда разработки</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Простая анимация появления блоков при скролле
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Конфетти (очень лёгкая версия, без библиотек)
+  const confettiRoot = document.getElementById('confetti');
+  const confettiBtn = document.getElementById('confettiBtn');
+  const confettiColors = ['#8f62ff', '#ff82bd', '#ffd36d', '#7fd8c8', '#9ab8ff'];
+
+  function launchConfetti(count = 70) {
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      piece.style.transform = `translateY(0) rotate(${Math.random() * 180}deg)`;
+      piece.style.animationDuration = (2.5 + Math.random() * 2.2) + 's';
+      piece.style.animationDelay = (Math.random() * 0.4) + 's';
+      piece.style.width = (6 + Math.random() * 6) + 'px';
+      piece.style.height = (10 + Math.random() * 10) + 'px';
+      confettiRoot.appendChild(piece);
+      piece.addEventListener('animationend', () => piece.remove());
+    }
+  }
+
+  confettiBtn.addEventListener('click', () => launchConfetti(85));
+
+  // Авто-конфетти при первом открытии (мягко)
+  window.addEventListener('load', () => {
+    setTimeout(() => launchConfetti(40), 500);
+  });
+
+  // Кнопка «Показать ещё добрых слов»
+  const moreWordsBtn = document.getElementById('moreWordsBtn');
+  const chatList = document.getElementById('chatList');
+  const extraMessages = [
+    'спасибо за то, что с вами команда чувствуется командой',
+    'спасибо за включённость и человеческий подход',
+    'спасибо за помощь там, где без вас было бы сильно сложнее',
+    'спасибо за профессионализм без лишнего шума',
+    'спасибо за стабильность, на которую можно опереться'
+  ];
+
+  let extraIndex = 0;
+  moreWordsBtn.addEventListener('click', () => {
+    if (extraIndex >= extraMessages.length) {
+      moreWordsBtn.textContent = 'Все добрые слова уже показаны 💜';
+      moreWordsBtn.disabled = true;
+      moreWordsBtn.style.opacity = '0.65';
+      return;
+    }
+
+    const li = document.createElement('li');
+    li.className = 'chat-item';
+    li.innerHTML = `<strong>Сообщение:</strong> ${extraMessages[extraIndex]}`;
+    chatList.appendChild(li);
+    extraIndex++;
+
+    if (extraIndex >= extraMessages.length) {
+      moreWordsBtn.textContent = 'Все добрые слова уже показаны 💜';
+    }
+  });
+</script>
+</body>
+</html>
