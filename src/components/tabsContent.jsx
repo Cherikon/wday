@@ -14,4 +14,8 @@ export const tabsContent = [
     },
     {text: '555555', content: <></>},
     {text: '123132', content: <></>},
+    {text: '123132', content: <></>},
+    {text: '123132', content: <></>},
+    {text: '123132', content: <></>},
+    {text: '123132', content: <></>},
 ]

@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
-const bg = '#fcfbff';
 const bgSoft = '#f7f2ff';
 const card = '#ffffff';
 const text = '#2c2438';
 const muted = '#6e627c';
 const accent = '#8f62ff';
-const accent2 = '#ff82bd';
-const accent3 = '#ffd36d';
 const line = '#e9e1f6';
 const shadow = '0 12px 30px rgba(80, 45, 130, 0.10)';
 const radiusXl = '24px';
-const radiusLg = '18px';
-const radiusMd = '14px';
-const container = '1120px';
 
 export const MainBlock = styled.div`
     display: flex;
@@ -129,6 +123,8 @@ export const TopBlock = styled.div`
         background: rgba(255, 255, 255, 0.9);
         color: #2c2438;
         border-color: #e9e1f6;
+        font-family: "Sofia Sans", sans-serif;
+        font-size: 24px;
     }
 `
 
@@ -342,4 +338,31 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
+`;
+
+export const OuterBlock = styled.div`
+    .confetti {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 50;
+    }
+
+    .confetti-piece {
+        position: absolute;
+        top: -10px;
+        width: 8px;
+        height: 14px;
+        border-radius: 3px;
+        opacity: 0.95;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh) rotate(540deg);
+            opacity: 0.95;
+        }
+    }
 `;
