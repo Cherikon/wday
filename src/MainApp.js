@@ -150,7 +150,7 @@ const MainApp = () => {
                             не&nbsp;надо нам
                             дарить в&nbsp;следующем году сертификат в&nbsp;мир носков.
                         </p>
-                        <div className="final-sign">С уважением и теплом! <br/> Доступные мужчины 😎</div>
+                        <div className="final-sign">С уважением и теплом!<br/>Доступные мужчины 😎</div>
                     </div>
                 </S.Final>
             </S.MainBlock>

@@ -28,7 +28,7 @@ export const PageContent = {
     },
     bestSupportEver: {
         name: 'Аня',
-        alias: 'Наша поддержка',
+        alias: 'Наша поддержка и опора',
         image: <img className="person-photo"
                     src={anya}
                     alt="Фото"/>,
