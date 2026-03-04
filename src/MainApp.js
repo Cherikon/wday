@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import * as S from './styles'
-import {tabsContent} from "./components/tabsContent.jsx";
+import {tabsContent as tContent} from "./components/tabsContent.jsx";
 import {Chip} from './components/Chip.jsx'
 import {PageContent} from "./components/PageContent.jsx";
 
@@ -51,7 +51,7 @@ const MainApp = () => {
     }, []);
 
     const wishList = [
-        'Вова', 'Саша', 'Илья В', 'Серёжа И', 'Илья Б', 'Серёжа Ю', 'Женя', 'Ден', 'Дима М', 'Дима Д'
+        'Вова', 'Саша', 'Илья В', 'Серёжа И', 'Илья Б', 'Серёжа Ю', 'Женя', 'Ден', 'Дима М', 'Дима Д', 'Ковш'
     ];
 
     if (!girlFromUrl) {
@@ -59,6 +59,7 @@ const MainApp = () => {
     }
 
     const content = PageContent[girlFromUrl];
+    const tabsContent = tContent[girlFromUrl]
 
     return (
         <S.OuterBlock>
@@ -77,8 +78,8 @@ const MainApp = () => {
                             вклад, который делает нашу команду сильнее каждый день.
                         </p>
                         <div className="hero-actions">
-                            <a className="btn btn-primary" href="#wishes">К пожеланиям</a>
-                            <button className="btn btn-secondary" id="confettiBtn" type="button">
+                            <a className="btn btn-primary" href="#wishes">↓ К пожеланиям</a>
+                            <button className="btn btn-secondary" id="confettiBtn">
                                 🎉 Немного праздника
                             </button>
                         </div>
@@ -97,16 +98,12 @@ const MainApp = () => {
                             </div>
                             <div className="person-content">
                                 <div className="person-header">
-                                    <h2 className="person-name">{content.name} 🌷</h2>
-                                    <span className="badge">Че вообще за тестировщица</span>
+                                    <h2 className="person-name">{content.alias}&nbsp;🌷</h2>
+                                    <span className="badge">{content.badge}</span>
                                 </div>
 
                                 <p className="person-text">
-                                    Спасибо за&nbsp;твою внимательность, точность и&nbsp;сильный профессиональный
-                                    взгляд.
-                                    Ты&nbsp;замечаешь&nbsp;то, что другие легко пропускают, и&nbsp;не&nbsp;боишься
-                                    высказывать свое
-                                    мнение.
+                                    {content.personText}
                                 </p>
                                 <p className="person-text">
                                     Твое присутствие поднимает настроение, а&nbsp;успехи воодушевляют.
@@ -114,15 +111,11 @@ const MainApp = () => {
                                 </p>
 
                                 <div className="tag-list" aria-label="Качества QA">
-                                    <span className="tag">Dybvfntkmyjcnm</span>
-                                    <span className="tag">Субординация</span>
-                                    <span className="tag">Высокая скорость печатиё</span>
-                                    <span className="tag">Умный ум</span>
+                                    {content.tags.map((text, index) => (
+                                        <span className="tag" key={index}>{text}</span>))}
                                 </div>
 
-                                <div className="quote">💬 «Ты находишь баги быстрее, чем мы успеваем сказать: “да там
-                                    всё ок” 😄»
-                                </div>
+                                <div className="quote">{content.quote}</div>
                             </div>
                         </div>
                     </article>
@@ -131,10 +124,11 @@ const MainApp = () => {
                     <div className="words fade-up" id="wishes">
                         <h2>Пожелания от команды</h2>
 
-                        <div className="chips" id="chips">
+                        <div className="chips">
                             {wishList.map((item, index) => (
                                 <React.Fragment key={index}>
-                                    <Chip value={item} changeTab={setActiveTab} index={index}/>
+                                    <Chip value={item} changeTab={setActiveTab} index={index}
+                                          isActive={activeTab === index}/>
                                 </React.Fragment>))}
                         </div>
 
@@ -142,7 +136,6 @@ const MainApp = () => {
                             {tabsContent[activeTab].text}
                             {tabsContent[activeTab].content}
                         </S.Content>}
-
                     </div>
                 </S.WishesBlock>
                 <S.Final>
@@ -150,15 +143,14 @@ const MainApp = () => {
                         <h2>С 8 Марта! Спасибо, что ты с нами 💜</h2>
                         <p>
                             Пусть будет больше радостных моментов, вдохновения, лёгких задач (ну&nbsp;хотя&nbsp;бы
-                            иногда
-                            😄)
+                            иногда 😄)
                             и&nbsp;как можно меньше внезапных &laquo;срочно-срочно&raquo;. Ты&nbsp;&mdash; важная
                             и&nbsp;сильная часть нашей команды. Сегодня
-                            вечером тебе придет смс с&nbsp;нашим скромным подарком. Это безвозмездно и&nbsp;пожалуйста,
+                            вечером тебе придет СМС с&nbsp;нашим скромным подарком. Это безвозмездно и,&nbsp;пожалуйста,
                             не&nbsp;надо нам
                             дарить в&nbsp;следующем году сертификат в&nbsp;мир носков.
                         </p>
-                        <div className="final-sign">С уважением и теплом, мужчины😎</div>
+                        <div className="final-sign">С уважением и теплом! <br/> Доступные мужчины 😎</div>
                     </div>
                 </S.Final>
             </S.MainBlock>

@@ -1,21 +1,75 @@
 import React from 'react';
-import smoke from "../images/smoke.gif";
+import {smoke, rick, qute, guy, work, money, tommy, dont, cool} from '../images'
 
-export const tabsContent = [
-    {
-        text: 'Желаем, чтобы в\u00a0твоих кальянах получались только самые ровные колечки',
-        content: <img src={smoke} style={{height: '100px', width: '100px'}} alt="gif"/>
-    },
-    {text: '222222', content: <></>},
-    {text: '333333', content: <></>},
-    {
-        text: 'Желаю, чтобы в\u00a0твоих кальянах получались только самые ровные колечки',
-        content: <img src={smoke} style={{height: '300px', width: '300px'}} alt="gif"/>
-    },
-    {text: '555555', content: <></>},
-    {text: '123132', content: <></>},
-    {text: '123132', content: <></>},
-    {text: '123132', content: <></>},
-    {text: '123132', content: <></>},
-    {text: '123132', content: <></>},
-]
+export const tabsContent = {
+    bestQaEver: [
+        {
+            text: 'Желаю, чтобы твой интерфейс оставался всегда таким же красивым и молодым',
+            content: <img src={qute} alt="gif"/>
+        },
+        {text: '222222', content: <></>},
+        {text: '333333', content: <></>},
+        {
+            text: 'Желаю, чтобы в\u00a0твоих кальянах получались только самые ровные колечки. А ещё классно отдохнуть!',
+            content: <img src={smoke} alt="gif"/>
+        },
+        {text: 'Желаю поменьше работать, а классно отдыхать на пляжиках побольше', content: <img src={guy} alt="gif"/>},
+        {
+            text: 'Желаю терпения в воспитании сына, чтобы он слушался, не буянил и приносил домой отличные оценки',
+            content: <img src={tommy} alt="gif"/>
+        },
+        {text: 'Много денег!', content: <img src={money} alt="gif"/>},
+        {
+            text: <>
+                Пусть в&nbsp;жизни будет минимум багов, максимум счастья, и&nbsp;всё работает именно так, как
+                ты&nbsp;задумала 😊.
+                Желаю отличного настроения, лёгкости, энергии и&nbsp;побольше поводов радовать себя.
+                Спасибо за&nbsp;твою внимательность, въедливость в&nbsp;хорошем смысле и&nbsp;железное
+                терпение&nbsp;&mdash; это очень ценно!
+            </>,
+            content: <img src={rick} alt="gif"/>
+        },
+        {
+            text: 'Желаю, чтобы в твоей жизни всегда был человек, который может помочь в любой ситуации', content: <img
+                src={work} alt="gif"/>
+        },
+        {
+            text: <>
+                Хотел пожелать, чтобы ты&nbsp;рвала и&nbsp;метала, бодро двигалась по&nbsp;жизни и&nbsp;вообще
+                не&nbsp;парилась ни&nbsp;о&nbsp;чем, но&nbsp;ты&nbsp;и&nbsp;так уже это делаешь, да&nbsp;так, что другим
+                и&nbsp;не&nbsp;снилось.
+                Так что давай, просто не&nbsp;сбавляй обороты, жми педаль в&nbsp;пол и&nbsp;пусть у&nbsp;тебя все будет
+                так, как ты&nbsp;хочешь. С&nbsp;праздником, короче!
+            </>, content: <img
+                src={dont} alt="gif"/>
+        },
+        {text: 'Не, ну это было бы уже слишком', content: <>😄</>},
+    ],
+    bestSupportEver: [
+        {
+            text: 'Желаю, чтобы твой интерфейс оставался всегда таким же красивым и молодым',
+            content: <img src={qute} alt="gif"/>
+        },
+        {text: '222222', content: <></>},
+        {text: '333333', content: <></>},
+        {
+            text: <>Желаю, чтобы в&nbsp;твоих кальянах получались только самые ровные колечки. Хорошо отдохнуть два дня!
+                Помни, что работа не мужской половой орган — два дня постоит!</>,
+            content: <img src={smoke} alt="gif"/>
+        },
+        {text: 'Желаю поменьше работать, а классно отдыхать на пляжиках побольше', content: <img src={guy} alt="gif"/>},
+        {text: '123132', content: <></>},
+        {text: 'Много денег!', content: <img src={money} alt="gif"/>},
+        {text: '123132', content: <></>},
+        {text: '', content: <></>},
+        {
+            text: <>
+                Ты&nbsp;реально крутая и&nbsp;по&nbsp;жизни двигаешься так, что никто догнать не&nbsp;может. Так что
+                и&nbsp;пожелать особо нечего&nbsp;&mdash; не&nbsp;тормози, жми на&nbsp;все педали.
+                И&nbsp;пусть твой кальян всегда дымит густо, а&nbsp;в&nbsp;жизни все будет так&nbsp;же сочно
+                и&nbsp;в&nbsp;кайф. С&nbsp;праздником, чика!
+            </>, content: <img src={cool} alt="gif"/>
+        },
+        {text: 'Не, ну это было бы уже слишком', content: <>😄</>},
+    ]
+}

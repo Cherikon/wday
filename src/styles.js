@@ -13,10 +13,14 @@ export const MainBlock = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 70%;
+    max-width: 90%;
     margin: 0 auto;
     font-size: 24px;
 
+    @media (min-width: 1024px) {
+        max-width: 70%;
+    }
+    
     .fade-up {
         opacity: 0;
         transform: translateY(14px);
@@ -31,6 +35,7 @@ export const MainBlock = styled.div`
 
 export const TopBlock = styled.div`
     margin-top: 30px;
+
     .hero-actions {
         display: flex;
         flex-wrap: wrap;
@@ -38,10 +43,22 @@ export const TopBlock = styled.div`
         margin-top: 20px;
     }
 
+    h1 {
+        font-size: 24px;
+
+        @media (min-width: 1024px) {
+            font-size: 48px;
+        }
+    }
+
     p {
-        font-size: 20px;
+        font-size: 16px;
         color: #6e627c;
         text-align: justify;
+
+        @media (min-width: 1024px) {
+            font-size: 20px;
+        }
     }
 
     .hero-card {
@@ -49,10 +66,14 @@ export const TopBlock = styled.div`
         border: 1px solid rgba(143, 98, 255, 0.15);
         border-radius: 24px;
         box-shadow: 0 12px 30px rgba(80, 45, 130, 0.10);
-        padding: 28px;
+        padding: 20px 16px;
         position: relative;
         overflow: hidden;
         isolation: isolate;
+
+        @media (min-width: 1024px) {
+            padding: 28px;
+        }
     }
 
     .hero-card::before,
@@ -90,9 +111,13 @@ export const TopBlock = styled.div`
         background: rgba(255, 255, 255, 0.8);
         border: 1px solid #e9e1f6;
         color: #6e627c;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
         margin-bottom: 14px;
+
+        @media (min-width: 1024px) {
+            font-size: 13px;
+        }
     }
 
     .btn {
@@ -102,11 +127,19 @@ export const TopBlock = styled.div`
         gap: 8px;
         border: 1px solid transparent;
         border-radius: 12px;
-        padding: 11px 16px;
-        font-weight: 700;
+        padding: 7px 12px;
         text-decoration: none;
         transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
         cursor: pointer;
+        font-size: 16px;
+        height: 40px;
+
+        @media (min-width: 1024px) {
+            height: 54px;
+            font-weight: 700;
+            font-size: 20px;
+            padding: 11px 16px;
+        }
     }
 
     .btn:hover {
@@ -124,25 +157,32 @@ export const TopBlock = styled.div`
         color: #2c2438;
         border-color: #e9e1f6;
         font-family: "Sofia Sans", sans-serif;
-        font-size: 24px;
     }
 `
 
 export const PhotoBlock = styled.div`
-    padding: 44px 0;
+    padding: 22px 0;
+
+    @media (min-width: 1024px) {
+        padding: 44px 0;
+    }
+
     .person {
         background: ${card};
         border: 1px solid ${line};
         border-radius: ${radiusXl};
-        box-shadow:${shadow};
+        box-shadow: ${shadow};
         overflow: hidden;
     }
 
     .person-grid {
         display: grid;
-        grid-template-columns: 360px 1fr;
         gap: 0;
         align-items: stretch;
+
+        @media (min-width: 1024px) {
+            grid-template-columns: 360px 1fr;
+        }
     }
 
     .person.reverse .person-grid {
@@ -173,6 +213,10 @@ export const PhotoBlock = styled.div`
         padding: 10px;
         box-shadow: 0 8px 20px rgba(69, 37, 116, 0.08);
         transform: rotate(-1.2deg);
+        
+        @media (min-width: 1024px) {
+            max-width: 250px;
+        }
     }
 
     .person.reverse .person-photo-card {
@@ -196,11 +240,15 @@ export const PhotoBlock = styled.div`
     }
 
     .person-content {
-        padding: 24px;
+        padding: 20px 16px;
         display: flex;
         flex-direction: column;
         gap: 14px;
         justify-content: center;
+
+        @media (min-width: 1024px) {
+            padding: 24px;
+        }
     }
 
     .person.reverse .person-content {
@@ -237,7 +285,11 @@ export const PhotoBlock = styled.div`
         margin: 0;
         color: ${text};
         font-size: 16px;
-        text-align: justify;
+
+        @media (min-width: 1024px) {
+            text-align: justify;
+            font-size: 16px;
+        }
     }
 
     .person-text + .person-text {
@@ -254,52 +306,96 @@ export const PhotoBlock = styled.div`
         border-radius: 999px;
         border: 1px solid ${line};
         background: #fff;
-        padding: 8px 10px;
-        font-size: 13px;
+        padding: 4px 6px;
+        font-size: 12px;
         font-weight: 700;
         color: #574a66;
+
+        @media (min-width: 1024px) {
+            font-size: 13px;
+            padding: 8px 10px;
+        }
     }
 
     .quote {
         border-left: 3px solid rgba(143, 98, 255, 0.35);
         background: #fcfaff;
-        padding: 12px 14px;
+        padding: 8px 10px;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 16px;
         color: #5d5371;
+
+        @media (min-width: 1024px) {
+            padding: 12px 14px;
+        }
     }
 `
 
 export const Final = styled.div`
-    padding: 44px 0;
+    padding: 22px 0;
+
+    @media (min-width: 1024px) {
+        padding: 44px 0;
+    }
     .final {
         text-align: center;
-        background: linear-gradient(180deg, rgba(143,98,255,0.06), rgba(255,130,189,0.06));
+        background: linear-gradient(180deg, rgba(143, 98, 255, 0.06), rgba(255, 130, 189, 0.06));
         border: 1px solid rgba(143, 98, 255, 0.14);
         border-radius: ${radiusXl};
         box-shadow: ${shadow};
-        padding: 28px 20px;
+        padding: 20px 16px;
+
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+
+            @media (min-width: 1024px) {
+                font-size: 36px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            padding: 28px 20px;
+        }
     }
 
     .final p {
         margin: 10px auto 0;
-        font-size: 20px;
+        font-size: 16px;
         text-align: justify;
         max-width: 760px;
         color: ${muted};
+
+        @media (min-width: 1024px) {
+            font-size: 20px;
+        }
     }
 
     .final-sign {
         margin-top: 14px;
         font-weight: 700;
         color: #4d4161;
+        font-size: 16px;
+
+        @media (min-width: 1024px) {
+            font-size: 24px;
+        }
     }`
 
 export const WishesBlock = styled.div`
-    padding: 44px 0;
+    padding: 22px 0;
+
+    @media (min-width: 1024px) {
+        padding: 44px 0;
+    }
     
     h2 {
         margin: 0;
+        font-size: 24px;
+
+        @media (min-width: 1024px) {
+            font-size: 36px;
+        }
     }
 
     .words {
@@ -307,7 +403,11 @@ export const WishesBlock = styled.div`
         border: 1px solid ${line};
         border-radius: ${radiusXl};
         box-shadow: ${shadow};
-        padding: 22px;
+        padding: 20px 16px;
+
+        @media (min-width: 1024px) {
+            padding: 22px;
+        }
     }
 
     .chips {
@@ -316,28 +416,49 @@ export const WishesBlock = styled.div`
         gap: 10px;
         margin-top: 16px;
     }
+`
 
-    .chip {
+export const Chip = styled.span`
+    font-size: 14px;
+    border-radius: 999px;
+    padding: 8px 10px;
+    border: ${({$isActive}) => $isActive ? `1px solid rgba(143, 98, 255, 0.18);` : `1px solid ${line}`};
+    background: ${({$isActive}) => $isActive ? 'linear-gradient(180deg, #f7f1ff 0%, #fff7fc 100%);' : 'white'};
+    font-weight: 700;
+    color: #564b65;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+
+    @media (min-width: 1024px) {
         &:hover {
             cursor: pointer;
             border: 1px solid ${accent};
         }
-        font-size: 16px;
-        border-radius: 999px;
+
         padding: 10px 12px;
-        border: 1px solid ${line};
-        background: white;
-        font-weight: 700;
-        color: #564b65;
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+        font-size: 16px;
     }
-`
+`;
 
 export const Content = styled.div`
     margin-top: 24px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: center;
+    
+    img {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 24px;
+        
+        img {
+            max-width: 300px;
+        }
+    }
 `;
 
 export const OuterBlock = styled.div`

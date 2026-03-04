@@ -1,0 +1,9 @@
+export {default as smoke} from "../images/smoke.gif";
+export {default as rick}  from '../images/Rick_Ashley.gif'
+export {default as qute}  from '../images/beautyСute.gif'
+export {default as guy}  from '../images/guy.gif'
+export {default as work}  from '../images/work.gif'
+export {default as money}  from '../images/money.gif'
+export {default as tommy}  from '../images/tommy.gif'
+export {default as dont}  from '../images/justDont.gif'
+export {default as cool}  from '../images/cool.gif'

@@ -1,13 +1,16 @@
 import React from "react";
+import * as S from '../styles'
 
 export const Chip = (props) => {
     return (
-        <span
+        <S.Chip
             className="chip"
             onClick={() => {
                 props.changeTab(props.index)
             }}
+            $isActive={props.isActive}
         >
             {props.value}
-        </span>)
+        </S.Chip>
+    )
 }
