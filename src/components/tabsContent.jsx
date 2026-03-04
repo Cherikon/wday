@@ -1,5 +1,5 @@
 import React from 'react';
-import {smoke, rick, qute, guy, work, money, tommy, dont, cool, dog, peter, dance} from '../images'
+import {smoke, rick, qute, guy, work, money, tommy, dont, cool, dog, dance, muerta, monkey} from '../images'
 
 export const tabsContent = {
     bestQaEver: [
@@ -16,7 +16,7 @@ export const tabsContent = {
                 Желаю получать на&nbsp;работе только мильоны денег, а&nbsp;не&nbsp;геммор и&nbsp;негатив :^)
                 Оставайся такой&nbsp;же позитивной, прикольной и&nbsp;крутой!
                 Спасибо, что ты&nbsp;есть в&nbsp;доступах! С&nbsp;женским днем!!!
-            </>, content: <img src={peter} alt="gif"/>
+            </>, content: <img src={monkey} alt="gif"/>
         },
         {
             text: 'Желаю, чтобы в\u00a0твоих кальянах получались только самые ровные колечки. Короче просто оставайся собой, потому что лучше просто некуда ;-) А ещё классно отдохнуть!',
@@ -59,8 +59,7 @@ export const tabsContent = {
                     Так что давай, просто не&nbsp;сбавляй обороты, жми педаль в&nbsp;пол и&nbsp;пусть у&nbsp;тебя все
                     будет
                     так, как ты&nbsp;хочешь. С&nbsp;праздником, короче!
-                </>, content: <img
-                src={dont} alt="gif"/>
+                </>, content: <img src={dont} alt="gif"/>
         },
         {text: 'Не, ну это было бы уже слишком', content: <>😄</>},
     ],
@@ -70,7 +69,14 @@ export const tabsContent = {
             content: <img src={qute} alt="gif"/>
         },
         {text: '222222', content: <></>},
-        {text: '333333', content: <></>},
+        {
+            text:
+                <>
+                    Клёво, что ты&nbsp;разбавляешь наши сосейдж встречи своим позитивом)
+                    Желаю больше деняк и&nbsp;позитиффа, меньше стресса и&nbsp;прочей фигни, ю&nbsp;ноу. Будь собой,
+                    с&nbsp;женским днем!!!
+                </>, content: <img src={muerta} alt="gif"/>
+        },
         {
             text:
                 <>
