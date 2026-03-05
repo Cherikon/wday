@@ -106,7 +106,7 @@ const MainApp = () => {
                                     {content.personText}
                                 </p>
                                 <p className="person-text">
-                                    Твое присутствие поднимает настроение, а&nbsp;успехи воодушевляют.
+                                    Твое присутствие поднимает настроение, а твои успехи нас воодушевляют.
                                     Очень ценим всё, что ты делаешь 💜
                                 </p>
 
@@ -123,7 +123,7 @@ const MainApp = () => {
                 <S.WishesBlock>
                     <div className="words fade-up" id="wishes">
                         <h2>Пожелания от команды</h2>
-
+                        <p>P.S. При переключении табов немного подожди, пока скачается медиаконтент</p>
                         <div className="chips">
                             {wishList.map((item, index) => (
                                 <React.Fragment key={index}>

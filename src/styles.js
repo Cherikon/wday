@@ -399,6 +399,11 @@ export const WishesBlock = styled.div`
     }
 
     .words {
+        p {
+            font-size: 14px;
+            color: #8c8c8c;
+            margin-top: 0;
+        }
         background: linear-gradient(180deg, #fff, #fefbff);
         border: 1px solid ${line};
         border-radius: ${radiusXl};
