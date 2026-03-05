@@ -3,15 +3,26 @@ import * as S from './styles'
 import {tabsContent as tContent} from "./components/tabsContent.jsx";
 import {Chip} from './components/Chip.jsx'
 import {PageContent} from "./components/PageContent.jsx";
+import {preDownloadGifs} from "./utils/preDownloadGifs";
 
 const MainApp = () => {
     const [activeTab, setActiveTab] = useState(null);
+    const [gifs, setGifs] = useState({})
     const girlFromUrl = location.pathname.match(/wday\/(.*)\//)?.[1];
+
+    const changeState = (key, value) => {
+        setGifs(prevState => ({
+            ...prevState,
+            [key]: value
+        }))
+    }
 
     useEffect(() => {
         if (!girlFromUrl) {
             return
         }
+        // включаем в фоне загрузку гифок, потому что они дохера весят
+        preDownloadGifs(changeState);
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -134,7 +145,8 @@ const MainApp = () => {
 
                         {activeTab !== null && <S.Content>
                             {tabsContent[activeTab].text}
-                            {tabsContent[activeTab].content}
+                            {gifs[tabsContent[activeTab].content] &&
+                                <img src={gifs[tabsContent[activeTab].content]} alt="gif"/>}
                         </S.Content>}
                     </div>
                 </S.WishesBlock>
