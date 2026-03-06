@@ -383,12 +383,6 @@ export const Final = styled.div`
     }`
 
 export const WishesBlock = styled.div`
-    padding: 22px 0;
-
-    @media (min-width: 1024px) {
-        padding: 44px 0;
-    }
-    
     h2 {
         margin: 0;
         font-size: 24px;
