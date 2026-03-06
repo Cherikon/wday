@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const bgSoft = '#f7f2ff';
 const card = '#ffffff';
@@ -490,5 +490,34 @@ export const OuterBlock = styled.div`
             transform: translateY(110vh) rotate(540deg);
             opacity: 0.95;
         }
+    }
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loader = styled.div`
+    width: 30px;
+    height: 30px;
+    margin-top: 8px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #d1b3ff;
+    border-radius: 50%;
+    display: ${({$hide}) => $hide ? 'none' : ' inline-block'};
+    box-sizing: border-box;
+    animation: ${rotate} 1s linear infinite;
+    
+    @media (min-width: 1024px) {
+        width: 48px;
+        height: 48px;
+        margin-top: 24px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #d1b3ff;
     }
 `;

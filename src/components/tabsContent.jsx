@@ -74,7 +74,7 @@ export const tabsContent = {
                     так, как ты&nbsp;хочешь. С&nbsp;праздником, короче!
                 </>, content: '/static/media/justDont.gif'
         },
-        {text: <>Не, ну&nbsp;это было&nbsp;бы уже слишком😄</>, content: <></>},
+        {text: <>Не, ну&nbsp;это было&nbsp;бы уже слишком😄</>, content: ''},
     ],
     bestSupportEver: [
         {
@@ -167,6 +167,6 @@ export const tabsContent = {
                 </>,
             content: '/static/media/cool.gif'
         },
-        {text: <>Не, ну&nbsp;это было&nbsp;бы уже слишком😄</>, content: <></>}
+        {text: <>Не, ну&nbsp;это было&nbsp;бы уже слишком😄</>, content: ''}
     ]
 }

@@ -145,8 +145,8 @@ const MainApp = () => {
 
                         {activeTab !== null && <S.Content>
                             {tabsContent[activeTab].text}
-                            {gifs[tabsContent[activeTab].content] &&
-                                <img src={gifs[tabsContent[activeTab].content]} alt="gif"/>}
+                            {gifs[tabsContent[activeTab].content] ?
+                                <img src={gifs[tabsContent[activeTab].content]} alt="gif"/> : <S.Loader $hide={!tabsContent[activeTab].content} /> }
                         </S.Content>}
                     </div>
                 </S.WishesBlock>
