@@ -79,7 +79,7 @@ const MainApp = () => {
             <S.MainBlock>
                 <S.TopBlock>
                     <div className="hero-card fade-up">
-                        <div className="hero-topline">🌷 Стильный навайбкоженный лендос • 8 Марта</div>
+                        <div className="hero-topline">🌷 Мужики покумекали и сделали стильный лендос</div>
                         <h1>С 8 Марта, {content.name}! 💜</h1>
                         <p>
                             Мужичанская часть нашего дружного коллектива поздравляет тебя с&nbsp;8&nbsp;марта.
